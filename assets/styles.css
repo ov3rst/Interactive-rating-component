@@ -1,0 +1,218 @@
+:root {
+  /* Primary */
+  --Orange: hsl(25, 97%, 53%);
+
+  /* Neutral */
+  --White: hsl(0, 0%, 100%);
+  --Light-Grey: hsl(217, 12%, 63%);
+  --Medium-Grey: hsl(216, 12%, 54%);
+  --Light-Dark-Blue: hsl(213, 19%, 18%);
+  --Dark-Blue: hsl(215, 22%, 15%);
+  --Very-Dark-Blue: hsl(216, 12%, 8%);
+
+  /* Font */
+  --Font: "Overpass", sans-serif;
+}
+
+/** Reset **/
+html {
+  box-sizing: border-box;
+  font-family: var(--Font);
+  font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--Very-Dark-Blue);
+  color: var(--White);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  padding: 1rem;
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button {
+  background-color: var(--Orange);
+  border: none;
+  border-radius: 2rem;
+  color: var(--White);
+  letter-spacing: 0.1rem;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  text-transform: uppercase;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--White);
+  color: var(--Orange);
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 1.3rem;
+}
+
+p {
+  font-size: 0.9rem;
+  margin-top: 0.7rem;
+  line-height: 1.4rem;
+}
+
+p,
+span {
+  color: var(--Light-Grey);
+}
+
+/** Rated Card **/
+.card {
+  max-width: 335px;
+  background-color: var(--Dark-Blue);
+  padding: 1.8rem 1.5rem;
+  border-radius: 1rem;
+}
+
+.card > span {
+  display: block;
+  width: fit-content;
+  padding: 0.7rem;
+  border-radius: 50%;
+  background-color: var(--Light-Dark-Blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ratings {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratings span {
+  background-color: var(--Light-Dark-Blue);
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.ratings span:first-of-type {
+  padding-left: 1.125rem;
+}
+
+.ratings span:hover {
+  background-color: var(--Orange);
+  color: var(--White);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.ratings span.is-active {
+  background-color: var(--Medium-Grey);
+  color: var(--White);
+  font-weight: bold;
+}
+
+.select {
+  position: absolute;
+  background-color: var(--Light-Dark-Blue);
+  display: block;
+  padding: 1rem;
+  border-radius: 2rem;
+  bottom: 43vh;
+  box-shadow: 1px 12px 33px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/** Thank You **/
+.card img {
+  display: block;
+  margin: 0.5rem auto 0;
+  width: 9.5rem;
+  height: 6.5rem;
+}
+
+.selected {
+  background-color: var(--Light-Dark-Blue);
+  width: max-content;
+  margin: 1.5rem auto 0;
+  border-radius: 2rem;
+  padding: 0.5rem 0.8rem 0.3rem;
+}
+
+.selected,
+.selected span {
+  color: var(--Orange);
+  font-weight: bold;
+}
+
+h2 {
+  margin-top: 1.5rem;
+}
+
+.selected,
+h2,
+.thank-you-p {
+  text-align: center;
+}
+
+/** Select Rate **/
+
+.select::before {
+  border: 25px solid var(--Light-Dark-Blue);
+  content: "";
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position: absolute;
+  bottom: -48px;
+  left: calc(50% - 25px);
+}
+
+.select.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.attribution {
+  margin-top: 1rem;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 800px) {
+  .card {
+    max-width: 360px;
+  }
+}
